@@ -24,6 +24,15 @@ argumento = ExtratorArgumentosUrl(url)
 '''
 
 url = "https://www.bytebank.com/cambio?MoedaOrigem=MoedaDestino&MoedaDestino=dolar&valor=1500"
-argumento = ExtratorArgumentosUrl(url)
-moeda_origem, moeda_destino, valor = argumento.extrai_argumentos()
-print("\nSerá convertido o valor de {} da moeda {} para {}".format(valor, moeda_origem, moeda_destino))
+argumento1 = ExtratorArgumentosUrl(url)
+argumento2 = ExtratorArgumentosUrl(url)
+print(argumento1)
+print("\n--------------------------------------------------------")
+argumento2 = argumento1
+print("\nOs dois argumentos tem a mesma URL") if argumento1 == argumento2 \
+    else print("\nOs dois argumentos não tem a mesma URL")
+
+url = "https://www.bytebank.com/cambio?MoedaOrigem=MoedaDestino&MoedaDestino=dolar&valor=500"
+argumento2 = ExtratorArgumentosUrl(url)
+print("\nOs dois argumentos tem a mesma URL") if argumento1 == argumento2 \
+    else print("\nOs dois argumentos não tem a mesma URL")
