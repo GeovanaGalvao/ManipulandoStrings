@@ -6,6 +6,17 @@ class ExtratorArgumentosUrl:
         else:
             raise LookupError("\nUrl inválida!")
 
+    def __len__(self):
+        return len(self.__url)
+
+    def __str__(self):
+        moeda_origem, moeda_destino, valor = self.extrai_argumentos()
+        return "\n{}\nA url tem {} caracteres.\n\nSerá convertido o valor de {} da moeda {} para {}"\
+            .format(self.url, len(self.url), valor, moeda_origem, moeda_destino)
+
+    def __eq__(self, other):
+        return self.url == other.url
+
     @property
     def url(self):
         return self.__url
